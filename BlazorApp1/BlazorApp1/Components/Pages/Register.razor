@@ -20,15 +20,7 @@
 
     private void HandleRegister()
     {
-        var success = UserService.Register(registerModel.Username, registerModel.Password);
-        if (success)
-        {
-            // Rediriger vers la page de connexion
-        }
-        else
-        {
-            // Afficher un message d'erreur
-        }
+        UserService.Register(registerModel.Username, registerModel.Password);
     }
 
     public class RegisterModel

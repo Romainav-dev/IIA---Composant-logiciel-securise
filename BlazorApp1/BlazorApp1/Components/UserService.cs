@@ -13,7 +13,6 @@ public class UserService
 
     public bool Register(string username, string password)
     {
-        // Faille : Injection SQL
         _context.Database.ExecuteSqlRaw($"INSERT INTO Users (Username, Password) VALUES ('{username}', '{password}')");
         _context.SaveChanges();
         return true;
@@ -21,7 +20,6 @@ public class UserService
 
     public User Login(string username, string password)
     {
-        // Faille : Authentification brisée
         return _context.Users.FirstOrDefault(u => u.Username == username && u.Password == password);
     }
 }

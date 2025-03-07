@@ -21,15 +21,7 @@
     private void HandleLogin()
     {
         Console.WriteLine("HandleLogin");
-        var user = UserService.Login(loginModel.Username, loginModel.Password);
-        if (user != null)
-        {
-            // Rediriger vers une page sécurisée
-        }
-        else
-        {
-            // Afficher un message d'erreur
-        }
+        UserService.Login(loginModel.Username, loginModel.Password);
     }
 
     public class LoginModel
