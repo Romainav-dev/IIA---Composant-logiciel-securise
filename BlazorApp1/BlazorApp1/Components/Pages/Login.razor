@@ -1,0 +1,41 @@
+﻿@page "/login"
+@inject UserService UserService
+
+<h3>Login</h3>
+
+<form>
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" @bind="loginModel.Username">
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" @bind="loginModel.Password">
+    </div>
+    <button type="submit" class="btn btn-primary" @onclick="HandleLogin">Login</button>
+</form>
+
+@code {
+    private LoginModel loginModel = new LoginModel();
+
+    private void HandleLogin()
+    {
+        Console.WriteLine("HandleLogin");
+        var user = UserService.Login(loginModel.Username, loginModel.Password);
+        if (user != null)
+        {
+            // Rediriger vers une page sécurisée
+        }
+        else
+        {
+            // Afficher un message d'erreur
+        }
+    }
+
+    public class LoginModel
+    {
+        public string Username { get; set; }
+        public string Password { get; set; }
+    }
+
+}
